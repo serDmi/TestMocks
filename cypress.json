@@ -1,0 +1,27 @@
+{
+    
+    "fixturesFolder": "./fixtures",
+    "chromeWebSecurity": false,
+    "integrationFolder": "./integration",
+    "pluginsFile": "./plugins/index.js",
+    "screenshotsFolder": "./output/screenshots",
+    "supportFile": "./support/index.js",
+    "videosFolder": "./output/videos",
+    "reportsFolder": "./output/reports",
+    "downloadsFolder": "/output/downloads",
+    "reporter": "mocha-junit-reporter",
+    "includeShadowDom": true,
+    "video": false,
+    "reporterOptions": {
+        "mochaFile": "./output/reports/test-output-[hash].xml",
+        "toConsole": "true",
+        "json": true
+    },
+    "env": {
+        "lang": "null",
+        "allureResultsPath": "allure-results",
+        "allure": true
+    },
+    "viewportWidth": 1600,
+    "viewportHeight": 1024
+}
