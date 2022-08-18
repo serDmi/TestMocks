@@ -1,8 +1,8 @@
 // import {auth} from "../helpers/auth";
-import { AutoTestUIWine } from '../helpers/newtst';
+import { AutoTestUIWine } from '../../helpers/newtst';
 
 describe('access ui test', () => {
-    beforeEach(() => {cy.visit('https://dev.wineincognito.ru/')});
+    beforeEach(() => {cy.visit('')});
     const authPage = new AutoTestUIWine();
     it('Check main info on authorize page', () => {
         authPage.cardTitle.should('be.visible').and('contain', 'Авторизация')

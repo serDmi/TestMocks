@@ -1,23 +1,22 @@
-import { lang } from '../helpers/locale.js';
 let at;
 
 export function auth() {
-    lang();
+   
     if (at) {
         window.localStorage.setItem('at', at);
         return;
     }
 
     const { username, password } = {
-        username: 'autotestUI',
-        password: 'qwe123',
+        username: 'wineadmin',
+        password: 'R0ckNr011a',
     };
 
-    cy.request('POST', `/api/v1/auth/login/`, {
+    cy.request('POST', `api/v1/admin/auth/sign_in`, {
         username: username,
         password: password,
     }).then((response) => {
-        at = response.body.access_token;
+        at = response.body.bearer_token;
         auth();
     });
 }
