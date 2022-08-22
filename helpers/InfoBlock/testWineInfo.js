@@ -1,3 +1,5 @@
+
+
 export class AutoTwstWineUsers  {
     get usersHeader(){
         return cy.get('wine-header')
@@ -121,6 +123,35 @@ export class AutoTwstWineUsers  {
         cy.get('@cells').eq(5).should('contain', fixt.rows[2].role);
         };
 
+
+        get actionBlock(){
+            return cy.get('.actions-block')
+        };
+
+        get addUsersBtn(){
+            return this.actionBlock.find('.add-user')
+        };
+
+        get userList(){
+            return cy.get('app-user-list')
+        };
+
+        get checkOpenAddUser(){
+            return this.userList.find('app-create-user').find('sl-drawer')
+        };
+
+        get infoFormAdd(){
+            return this.checkOpenAddUser.find('core-form').find('div[class = "personal-data"]')
+        };
+
+        get slInputUser(){
+            return this.infoFormAdd.find('core-validate').first().find('sl-input');
+        };
+
+        inputAddUser(str){
+            return this.infoFormAdd.find(`sl-input[name="${str[0]}"]`).find('input').type(str[1])
+        }
+           
     
 
 
