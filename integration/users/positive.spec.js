@@ -4,6 +4,13 @@ import { AutoTwstWineUsers } from '../../helpers/InfoBlock/testWineInfo.js';
 import {AutoTestBtn} from '../../helpers/Button/testBtn';
 
 describe('access ui test', () => {
+    let dateAddUser = [
+        ['lastname', 'qwer123'],
+        ['firstname', 'abra'],
+        ['middle_name', 'ca'],
+        ['phone', 'da'],
+        ['password', '1234'],
+    ]
     beforeEach(() => {
         auth();
         cy.visit('/user');
@@ -39,10 +46,21 @@ describe('access ui test', () => {
         wineUsers.iconCompaniMenu.should('exist').and('be.visible');
         wineUsers.nameCompaniMenu.should('exist').and('be.visible');
     });
-    it.only('Check Button in Info Block', () => {
+    it('Check Button in Info Block', () => {
         wineBtn.buttonReset.should('exist').and('be.visible');
         wineBtn.buttonSearch.should('exist').and('be.visible');
         wineUsers.compareTableString('Посысаев Георгий Сергеевич', require('../../fixtures/mocks/fixture/userList.json'));
+    })
+    it.only('Check input add users in wine', () => {
+        wineUsers.addUsersBtn.should('exist').and('be.visible');
+        wineUsers.addUsersBtn.click();
+        wineUsers.checkOpenAddUser.should('have.attr', 'open', 'open');
+        // wineUsers.slInputUser.should('exist').and('be.visible');
+        // wineUsers.inputAddUser(dateAddUser).click().type();
+        dateAddUser.forEach((item) => {
+            wineUsers.inputAddUser(item)
+        })
+
     })
 
 });
